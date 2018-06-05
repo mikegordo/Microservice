@@ -1,0 +1,4 @@
+runtime: go
+vm: true
+module: default
+threadsafe: true
