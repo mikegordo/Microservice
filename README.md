@@ -1,5 +1,6 @@
 # Microservice demo
 Just playing with microservices in Golang.
+
 Three containers share the same network. They work together to produce the result.
 
 ## Generator
@@ -32,10 +33,13 @@ Uses environment variables `FETCHER_LENGTH` (default 16) and `FETCHER_CAPS` (def
 
 ### Starting container
 *First*, start Generator, then Redis container.
+
 `docker run --name redis --net container:generator --rm redis`
 
 Start the app
+
 `docker run --rm --name fetcher --net container:generator mikegordo/fetcher`
 
 Example with variables
+
 `docker run --rm --name fetcher --net container:generator -e FETCHER_LENGTH=8 -e FETCHER_CAPS=true mikegordo/fetcher`
